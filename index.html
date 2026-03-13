@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameVault — Marketplace de Contas Gamer</title>
+  <meta name="description" content="Compre e venda contas de jogos, skins, coins e itens digitais com segurança total. O maior marketplace gamer do Brasil." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="navbar-brand">
+    <div class="logo-icon">&#9889;</div>
+    <span>Game<span class="text-gradient">Vault</span></span>
+  </a>
+  <ul class="navbar-nav">
+    <li><a href="index.html" class="nav-link active">Home</a></li>
+    <li><a href="pages/listings.html" class="nav-link">Explorar</a></li>
+    <li><a href="pages/listings.html?cat=accounts" class="nav-link">Contas</a></li>
+    <li><a href="pages/listings.html?cat=skins" class="nav-link">Skins</a></li>
+    <li><a href="pages/listings.html?cat=coins" class="nav-link">Coins</a></li>
+  </ul>
+  <div class="navbar-actions">
+    <button class="btn btn-secondary btn-sm" onclick="openModal('login')">Entrar</button>
+    <button class="btn btn-primary btn-sm" onclick="window.location='pages/sell.html'">
+      <i class="fa-solid fa-plus"></i> Vender
+    </button>
+    <button class="mobile-menu-btn" onclick="toggleDrawer()" id="menuBtn">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE DRAWER OVERLAY -->
+<div class="mobile-drawer-overlay" id="drawerOverlay" onclick="toggleDrawer()"></div>
+<div class="mobile-drawer" id="mobileDrawer">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+    <span style="font-weight:800;font-size:18px;">Game<span class="text-gradient">Vault</span></span>
+    <button style="background:none;color:var(--text-muted);font-size:20px;" onclick="toggleDrawer()"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <a href="index.html" class="nav-link" style="border-radius:10px;padding:12px 14px;">&#127968; Home</a>
+  <a href="pages/listings.html" class="nav-link" style="border-radius:10px;padding:12px 14px;">&#128269; Explorar</a>
+  <a href="pages/listings.html?cat=accounts" class="nav-link" style="border-radius:10px;padding:12px 14px;">&#127918; Contas</a>
+  <a href="pages/listings.html?cat=skins" class="nav-link" style="border-radius:10px;padding:12px 14px;">&#127912; Skins</a>
+  <a href="pages/listings.html?cat=coins" class="nav-link" style="border-radius:10px;padding:12px 14px;">&#128176; Coins</a>
+  <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px;">
+    <button class="btn btn-secondary" onclick="openModal('login')">Entrar</button>
+    <button class="btn btn-primary" onclick="window.location='pages/sell.html'"><i class="fa-solid fa-plus"></i> Vender</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container" style="width:100%;">
+    <div class="hero-content animate-fade-up">
+      <div class="hero-tag">
+        <span class="dot"></span>
+        <i class="fa-solid fa-shield-halved"></i>
+        Plataforma 100% Segura &middot; +50.000 transações realizadas
+      </div>
+      <h1 class="hero-title">
+        Compre e Venda<br />
+        <span class="text-gradient">Contas Gamer</span><br />
+        com Segurança
+      </h1>
+      <p class="hero-subtitle">
+        O maior marketplace de contas, skins, coins e itens digitais do Brasil.
+        Proteção total ao comprador, pagamento seguro e entrega garantida.
+      </p>
+      <div class="hero-actions">
+        <a href="pages/listings.html" class="btn btn-primary btn-lg">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          Explorar Produtos
+        </a>
+        <a href="pages/sell.html" class="btn btn-secondary btn-lg">
+          <i class="fa-solid fa-tag"></i>
+          Vender Minha Conta
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <span class="hero-stat-value text-gradient">50K+</span>
+          <span class="hero-stat-label">Vendas realizadas</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-value text-gradient">98.7%</span>
+          <span class="hero-stat-label">Avaliações positivas</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-value text-gradient">R$2M+</span>
+          <span class="hero-stat-label">Negociados</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-value text-gradient">24/7</span>
+          <span class="hero-stat-label">Suporte ativo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-float float">
+      <div class="hero-card-float">
+        <div class="game-thumb" style="background:linear-gradient(135deg,#1a0533,#2d1b69);font-size:40px;">&#127918;</div>
+        <div class="card-game">Valorant</div>
+        <div class="card-title">Conta Immortal 3 + 47 skins</div>
+        <div class="card-price">R$ 380</div>
+      </div>
+      <div class="hero-card-float">
+        <div class="game-thumb" style="background:linear-gradient(135deg,#0d1b2a,#1a3a5c);font-size:40px;">&#9876;</div>
+        <div class="card-game">League of Legends</div>
+        <div class="card-title">Conta Challenger + 200 champs</div>
+        <div class="card-price">R$ 650</div>
+      </div>
+      <div class="hero-card-float" style="grid-column:1/-1;display:flex;align-items:center;gap:16px;">
+        <div style="font-size:32px;">&#128737;</div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#34d399;margin-bottom:4px;">&#10003; Compra Protegida</div>
+          <div style="font-size:12px;color:var(--text-muted);">Devolução garantida em 24h se não for como anunciado</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED BY -->
+<div class="trusted-section">
+  <div class="container">
+    <div class="trusted-inner">
+      <span class="trusted-label">Aceito</span>
+      <div class="trusted-logos">
+        <span>PIX</span><span>&bull;</span>
+        <span>Cartão de Crédito</span><span>&bull;</span>
+        <span>Boleto</span><span>&bull;</span>
+        <span>PayPal</span><span>&bull;</span>
+        <span>Mercado Pago</span><span>&bull;</span>
+        <span>PicPay</span><span>&bull;</span>
+        <span>PIX</span><span>&bull;</span>
+        <span>Cartão de Crédito</span><span>&bull;</span>
+        <span>Boleto</span><span>&bull;</span>
+        <span>PayPal</span><span>&bull;</span>
+        <span>Mercado Pago</span><span>&bull;</span>
+        <span>PicPay</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JOGOS POPULARES -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><i class="fa-solid fa-fire"></i> Em Alta</div>
+      <h2 class="section-title">Jogos <span class="text-gradient">Populares</span></h2>
+      <p class="section-subtitle">Encontre contas, skins e itens dos seus jogos favoritos com os melhores preços.</p>
+    </div>
+    <div class="games-grid">
+      <a href="pages/listings.html?game=valorant" class="game-card">
+        <div class="hover-overlay"></div>
+        <div class="game-card-badge"><span class="badge badge-orange"><i class="fa-solid fa-fire"></i> HOT</span></div>
+        <div class="game-card-thumb" style="background:linear-gradient(135deg,#1a0533 0%,#4c1d95 100%);">&#127919;</div>
+        <div class="game-card-body">
+          <div class="game-card-name">Valorant</div>
+          <div class="game-card-count">2.847 anúncios</div>
+        </div>
+      </a>
+      <a href="pages/listings.html?game=lol" class="game-card">
+        <div class="hover-overlay"></div>
+        <div class="game-card-badge"><span class="badge badge-cyan">TOP</span></div>
+        <div class="game-card-thumb" style="background:linear-gradient(135deg,#0d1b2a 0%,#1e3a5f 100%);">&#9876;</div>
+        <div class="game-card-body">
+          <div class="game-card-name">League of Legends</div>
+          <div class="game-card-count">4.120 anúncios</div>
+        </div>
+      </a>
+      <a href="pages/listings.html?game=csgo" class="game-card">
+        <div class="hover-overlay"></div>
+        <div class="game-card-thumb" style="background:linear-gradient(135deg,#0f2027 0%,#203a43 100%);">&#128163;</div>
+        <div class="game-card-body">
+          <div class="game-card-name">CS2</div>
+          <div class="game-card-count">3.590 anúncios</div>
+        </div>
+      </a>
+      <a href="pages/listings.html?game=fortnite" class="game-card">
+        <div class="hover-overlay"></div>
+        <div class="game-card-badge"><span class="badge badge-green">NOVO</span></div>
+        <div class="game-card-thumb" style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);">&#127942;</div>
+        <div class="game-card-body">
+          <div class="game-card-name">Fortnite</div>
+          <div class="game-card-count">1.983 anúncios</div>
+        </div>
+      </a>
+      <a href="pages/listings.html?game=freefire" class="game-card">
+        <div class="hover-overlay"></div>
+        <div class="game-card-thumb" style="background:linear-gradient(135deg,#2d1b00 0%,#5c3317 100%);">&#128293;</div>
+        <div class="game-card-body">
+          <div class="game-card-name">Free Fire</div>
+          <div class="game-card-count">5.241 anúncios</div>
+        </div>
+      </a>
+      <a href="pages/listings.html?game=diablo" class="game-card">
+        <div class="hover-overlay"></div>
+        <div class="game-card-thumb" style="background:linear-gradient(135deg,#2d0000 0%,#5c1a1a 100%);">&#128127;</div>
+        <div class="game-card-body">
+          <div class="game-card-name">Diablo IV</div>
+          <div class="game-card-count">892 anúncios</div>
+        </div>
+      </a>
+      <a href="pages/listings.html?game=wow" class="game-card">
+        <div class="hover-overlay"></div>
+        <div class="game-card-thumb" style="background:linear-gradient(135deg,#001a33 0%,#0d3366 100%);">&#129497;</div>
+        <div class="game-card-body">
+          <div class="game-card-name">World of Warcraft</div>
+          <div class="game-card-count">1.456 anúncios</div>
+        </div>
+      </a>
+      <a href="pages/listings.html?game=genshin" class="game-card">
+        <div class="hover-overlay"></div>
+        <div class="game-card-thumb" style="background:linear-gradient(135deg,#001a2e 0%,#003d5c 100%);">&#10024;</div>
+        <div class="game-card-body">
+          <div class="game-card-name">Genshin Impact</div>
+          <div class="game-card-count">2.103 anúncios</div>
+        </div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:32px;">
+      <a href="pages/listings.html" class="btn btn-secondary">Ver todos os jogos <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- DESTAQUES -->
+<section style="background:var(--bg-secondary);padding:80px 0;">
+  <div class="container">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:16px;">
+      <div>
+        <div class="section-tag" style="display:inline-flex;margin-bottom:10px;"><i class="fa-solid fa-star"></i> Destaques</div>
+        <h2 class="section-title" style="text-align:left;margin:0;">Anúncios em <span class="text-gradient">Destaque</span></h2>
+      </div>
+      <a href="pages/listings.html" class="btn btn-secondary">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="filter-chips" style="margin-bottom:28px;" id="homeFilterChips">
+      <button class="filter-chip active" data-filter="all">Tudo</button>
+      <button class="filter-chip" data-filter="accounts">Contas</button>
+      <button class="filter-chip" data-filter="skins">Skins</button>
+      <button class="filter-chip" data-filter="coins">Coins</button>
+      <button class="filter-chip" data-filter="items">Itens</button>
+    </div>
+    <div class="listings-grid" id="featuredGrid">
+
+      <div class="listing-card" data-type="accounts">
+        <div class="listing-thumb" style="background:linear-gradient(135deg,#1a0533,#4c1d95);">
+          <span style="position:relative;z-index:1;font-size:52px;">&#127919;</span>
+          <div class="listing-thumb-overlay">
+            <span class="badge badge-orange"><i class="fa-solid fa-fire"></i> HOT</span>
+            <span class="badge badge-purple">Conta</span>
+          </div>
+        </div>
+        <button class="wishlist-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+        <div class="listing-body">
+          <div class="listing-game">Valorant</div>
+          <div class="listing-title">Conta Immortal 3 com 47 skins raras incluindo Elderflame</div>
+          <div class="listing-tags">
+            <span class="listing-tag">Immortal 3</span>
+            <span class="listing-tag">47 Skins</span>
+            <span class="listing-tag">Elo Alto</span>
+          </div>
+          <div class="listing-footer">
+            <div><div class="listing-price">R$ 380 <span>/ conta</span></div></div>
+            <div class="listing-seller">
+              <div class="seller-avatar">MK</div>
+              <div class="seller-info">
+                <div class="seller-name">MarcoKing</div>
+                <div class="seller-rating">&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="listing-card" data-type="skins">
+        <div class="listing-thumb" style="background:linear-gradient(135deg,#0f2027,#203a43);">
+          <span style="position:relative;z-index:1;font-size:52px;">&#128299;</span>
+          <div class="listing-thumb-overlay">
+            <span class="badge badge-red">Raro</span>
+            <span class="badge badge-cyan">Skin</span>
+          </div>
+        </div>
+        <button class="wishlist-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+        <div class="listing-body">
+          <div class="listing-game">CS2</div>
+          <div class="listing-title">AK-47 | Fire Serpent Field-Tested + Stickers Katowice 2014</div>
+          <div class="listing-tags">
+            <span class="listing-tag">Field-Tested</span>
+            <span class="listing-tag">StatTrak</span>
+            <span class="listing-tag">0.22 Float</span>
+          </div>
+          <div class="listing-footer">
+            <div><div class="listing-price">R$ 1.250 <span>/ item</span></div></div>
+            <div class="listing-seller">
+              <div class="seller-avatar" style="background:linear-gradient(135deg,#06b6d4,#0284c7);">ST</div>
+              <div class="seller-info">
+                <div class="seller-name">SteelTrader</div>
+                <div class="seller-rating">&#9733;&#9733;&#9733;&#9733;&#9733; 5.0</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="listing-card" data-type="coins">
+        <div class="listing-thumb" style="background:linear-gradient(135deg,#1a1a00,#3d3d00);">
+          <span style="position:relative;z-index:1;font-size:52px;">&#128176;</span>
+          <div class="listing-thumb-overlay">
+            <span class="badge badge-green">Promo</span>
+            <span class="badge badge-orange">Coins</span>
+          </div>
+        </div>
+        <button class="wishlist-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+        <div class="listing-body">
+          <div class="listing-game">Free Fire</div>
+          <div class="listing-title">10.000 Diamantes Free Fire — Entrega imediata via ID</div>
+          <div class="listing-tags">
+            <span class="listing-tag">10K Diamantes</span>
+            <span class="listing-tag">Entrega rápida</span>
+          </div>
+          <div class="listing-footer">
+            <div><div class="listing-price">R$ 85 <span>/ pacote</span></div></div>
+            <div class="listing-seller">
+              <div class="seller-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706);">DG</div>
+              <div class="seller-info">
+                <div class="seller-name">DiamondsGuru</div>
+                <div class="seller-rating">&#9733;&#9733;&#9733;&#9733;&#9734; 4.7</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="listing-card" data-type="accounts">
+        <div class="listing-thumb" style="background:linear-gradient(135deg,#0d1b2a,#1e3a5f);">
+          <span style="position:relative;z-index:1;font-size:52px;">&#9876;</span>
+          <div class="listing-thumb-overlay">
+            <span class="badge badge-purple">Conta</span>
+          </div>
+        </div>
+        <button class="wishlist-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+        <div class="listing-body">
+          <div class="listing-game">League of Legends</div>
+          <div class="listing-title">Conta Challenger BR — 200 campeões + 150 skins lendárias</div>
+          <div class="listing-tags">
+            <span class="listing-tag">Challenger</span>
+            <span class="listing-tag">200 Champs</span>
+          </div>
+          <div class="listing-footer">
+            <div><div class="listing-price">R$ 650 <span>/ conta</span></div></div>
+            <div class="listing-seller">
+              <div class="seller-avatar" style="background:linear-gradient(135deg,#10b981,#059669);">LP</div>
+              <div class="seller-info">
+                <div class="seller-name">LolPro</div>
+                <div class="seller-rating">&#9733;&#9733;&#9733;&#9733;&#9733; 4.8</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="listing-card" data-type="items">
+        <div class="listing-thumb" style="background:linear-gradient(135deg,#001a2e,#003d5c);">
+          <span style="position:relative;z-index:1;font-size:52px;">&#10024;</span>
+          <div class="listing-thumb-overlay">
+            <span class="badge badge-cyan">Item</span>
+          </div>
+        </div>
+        <button class="wishlist-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+        <div class="listing-body">
+          <div class="listing-game">Genshin Impact</div>
+          <div class="listing-title">Conta AR55 com Hu Tao C6 + Raiden C2 + Zhongli C2</div>
+          <div class="listing-tags">
+            <span class="listing-tag">AR55</span>
+            <span class="listing-tag">Hu Tao C6</span>
+            <span class="listing-tag">3 Cons.</span>
+          </div>
+          <div class="listing-footer">
+            <div><div class="listing-price">R$ 920 <span>/ conta</span></div></div>
+            <div class="listing-seller">
+              <div class="seller-avatar" style="background:linear-gradient(135deg,#a78bfa,#8b5cf6);">GE</div>
+              <div class="seller-info">
+                <div class="seller-name">GenshinElite</div>
+                <div class="seller-rating">&#9733;&#9733;&#9733;&#9733;&#9733; 5.0</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="listing-card" data-type="skins">
+        <div class="listing-thumb" style="background:linear-gradient(135deg,#1a0a00,#4d2600);">
+          <span style="position:relative;z-index:1;font-size:52px;">&#127942;</span>
+          <div class="listing-thumb-overlay">
+            <span class="badge badge-orange"><i class="fa-solid fa-bolt"></i> Raro</span>
+            <span class="badge badge-cyan">Skin</span>
+          </div>
+        </div>
+        <button class="wishlist-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+        <div class="listing-body">
+          <div class="listing-game">Fortnite</div>
+          <div class="listing-title">Skin Renegade Raider + Aerial Assault Trooper — Season 1</div>
+          <div class="listing-tags">
+            <span class="listing-tag">OG Season 1</span>
+            <span class="listing-tag">Ultra Raro</span>
+          </div>
+          <div class="listing-footer">
+            <div><div class="listing-price">R$ 2.800 <span>/ skin</span></div></div>
+            <div class="listing-seller">
+              <div class="seller-avatar" style="background:linear-gradient(135deg,#ef4444,#dc2626);">OG</div>
+              <div class="seller-info">
+                <div class="seller-name">OGSkins</div>
+                <div class="seller-rating">&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STATS BANNER -->
+<div class="stats-banner">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-value text-gradient" data-target="50000" data-suffix="K+">0</div>
+        <div class="stat-label">Transações Realizadas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value text-gradient-gold" data-target="12000" data-suffix="K+">0</div>
+        <div class="stat-label">Vendedores Ativos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" style="background:linear-gradient(135deg,#10b981,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" data-target="98" data-suffix="%">0</div>
+        <div class="stat-label">% de Satisfação</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" style="color:#f87171;" data-target="200" data-suffix="+">0</div>
+        <div class="stat-label">Jogos Disponíveis</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMO FUNCIONA -->
+<section class="how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><i class="fa-solid fa-circle-info"></i> Tutorial</div>
+      <h2 class="section-title">Como <span class="text-gradient">Funciona</span></h2>
+      <p class="section-subtitle">Em poucos passos você compra ou vende com total segurança.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <div class="step-icon purple"><i class="fa-solid fa-magnifying-glass" style="color:#a78bfa;"></i></div>
+        <div class="step-title">Encontre o que quer</div>
+        <div class="step-desc">Navegue por milhares de anúncios verificados. Filtre por jogo, tipo, preço e muito mais.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <div class="step-icon cyan"><i class="fa-solid fa-lock" style="color:#22d3ee;"></i></div>
+        <div class="step-title">Pagamento Seguro</div>
+        <div class="step-desc">Seu dinheiro fica protegido em custódia conosco até você confirmar o recebimento.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <div class="step-icon green"><i class="fa-solid fa-handshake" style="color:#34d399;"></i></div>
+        <div class="step-title">Receba com Garantia</div>
+        <div class="step-desc">O vendedor entrega o item ou conta. Você verifica e confirma. Só então o vendedor recebe.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <div class="step-icon orange"><i class="fa-solid fa-star" style="color:#fbbf24;"></i></div>
+        <div class="step-title">Avalie e Repita</div>
+        <div class="step-desc">Deixe sua avaliação, ajude a comunidade e continue comprando com confiança.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEGURANÇA E CONFIANÇA -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><i class="fa-solid fa-shield-halved"></i> Proteção</div>
+      <h2 class="section-title">Sua Segurança é nossa <span class="text-gradient">Prioridade</span></h2>
+      <p class="section-subtitle">Desenvolvemos múltiplas camadas de proteção para garantir que cada transação seja segura.</p>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-icon"><i class="fa-solid fa-shield-halved" style="color:#a78bfa;"></i></div>
+        <div class="trust-title">Sistema de Escrow</div>
+        <div class="trust-desc">Seu pagamento fica retido conosco em custódia até você confirmar que recebeu exatamente o que foi anunciado.</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon"><i class="fa-solid fa-user-check" style="color:#22d3ee;"></i></div>
+        <div class="trust-title">Vendedores Verificados</div>
+        <div class="trust-desc">Todos os vendedores passam por verificação de identidade (KYC) antes de publicar anúncios na plataforma.</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon"><i class="fa-solid fa-rotate-left" style="color:#34d399;"></i></div>
+        <div class="trust-title">Reembolso Garantido</div>
+        <div class="trust-desc">Se o item não for como descrito, você recebe 100% do valor de volta sem burocracia em até 24 horas.</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon"><i class="fa-solid fa-lock" style="color:#fbbf24;"></i></div>
+        <div class="trust-title">Criptografia SSL</div>
+        <div class="trust-desc">Todos os dados são transmitidos com criptografia de nível bancário. Suas informações estão sempre protegidas.</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon"><i class="fa-solid fa-headset" style="color:#f87171;"></i></div>
+        <div class="trust-title">Suporte 24/7</div>
+        <div class="trust-desc">Nossa equipe está disponível 24 horas por dia, 7 dias por semana para resolver qualquer problema.</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon"><i class="fa-solid fa-chart-line" style="color:#a78bfa;"></i></div>
+        <div class="trust-title">Sistema de Reputação</div>
+        <div class="trust-desc">Avaliações verificadas de compradores reais. Histórico completo de transações para cada vendedor.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><i class="fa-solid fa-comments"></i> Reviews</div>
+      <h2 class="section-title">O que dizem nossos <span class="text-gradient">Clientes</span></h2>
+      <p class="section-subtitle">Mais de 50.000 transações realizadas. Veja o que a comunidade fala sobre nós.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"Comprei uma conta de Valorant Immortal por R$350. O processo foi super seguro, o vendedor entregou em menos de 2 horas e a conta estava exatamente como descrita. Recomendo muito!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9);">RP</div>
+          <div>
+            <div class="testimonial-name">Rafael Pereira</div>
+            <div class="testimonial-meta">Valorant &middot; Comprador verificado</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"Vendo contas aqui há 6 meses. O sistema de escrow é incrível, nunca tive problema com chargeback. A taxa é justa e o suporte resolve tudo rápido. Melhor plataforma do mercado."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#06b6d4,#0284c7);">CS</div>
+          <div>
+            <div class="testimonial-name">Carlos Souza</div>
+            <div class="testimonial-meta">CS2 &middot; Vendedor Elite</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"Já tentei outras plataformas mas nenhuma tem a segurança do GameVault. Comprei diamantes do Free Fire e chegou em minutos. O suporte é espetacular, resolveram meu problema em 10 min."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706);">AL</div>
+          <div>
+            <div class="testimonial-name">Ana Lima</div>
+            <div class="testimonial-meta">Free Fire &middot; Compradora verificada</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:32px;margin-top:48px;flex-wrap:wrap;">
+      <div style="text-align:center;">
+        <div style="font-size:56px;font-weight:900;letter-spacing:-2px;line-height:1;" class="text-gradient">4.9</div>
+        <div style="color:#f59e0b;font-size:20px;letter-spacing:3px;margin:6px 0;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div style="font-size:13px;color:var(--text-muted);">Baseado em 12.847 avaliações</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;min-width:220px;">
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;">
+          <span style="color:var(--text-muted);width:20px;">5&#9733;</span>
+          <div style="flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden;"><div style="width:87%;height:100%;background:linear-gradient(90deg,#f59e0b,#fbbf24);border-radius:3px;"></div></div>
+          <span style="color:var(--text-muted);">87%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;">
+          <span style="color:var(--text-muted);width:20px;">4&#9733;</span>
+          <div style="flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden;"><div style="width:9%;height:100%;background:linear-gradient(90deg,#f59e0b,#fbbf24);border-radius:3px;"></div></div>
+          <span style="color:var(--text-muted);">9%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;">
+          <span style="color:var(--text-muted);width:20px;">3&#9733;</span>
+          <div style="flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden;"><div style="width:3%;height:100%;background:linear-gradient(90deg,#f59e0b,#fbbf24);border-radius:3px;"></div></div>
+          <span style="color:var(--text-muted);">3%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;">
+          <span style="color:var(--text-muted);width:20px;">1&#9733;</span>
+          <div style="flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden;"><div style="width:1%;height:100%;background:var(--red);border-radius:3px;"></div></div>
+          <span style="color:var(--text-muted);">1%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="container">
+    <div class="cta-box">
+      <div class="hero-tag" style="justify-content:center;margin-bottom:20px;">
+        <span class="dot"></span>
+        <span>Cadastro Gratuito &middot; Sem mensalidade</span>
+      </div>
+      <h2 class="cta-title">Pronto para <span class="text-gradient">começar</span>?</h2>
+      <p class="cta-subtitle">Crie sua conta grátis, explore milhares de anúncios ou comece a vender hoje mesmo.</p>
+      <div class="cta-actions">
+        <button class="btn btn-primary btn-lg" onclick="openModal('register')">
+          <i class="fa-solid fa-user-plus"></i> Criar Conta Grátis
+        </button>
+        <a href="pages/listings.html" class="btn btn-secondary btn-lg">
+          <i class="fa-solid fa-magnifying-glass"></i> Explorar Produtos
+        </a>
+      </div>
+      <div class="payment-icons" style="justify-content:center;margin-top:28px;">
+        <span class="payment-icon">PIX</span>
+        <span class="payment-icon">VISA</span>
+        <span class="payment-icon">MASTERCARD</span>
+        <span class="payment-icon">BOLETO</span>
+        <span class="payment-icon">PAYPAL</span>
+        <span class="payment-icon">MERCADO PAGO</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">&#9889;</div>
+          <span>Game<span class="text-gradient">Vault</span></span>
+        </div>
+        <p class="footer-desc">O maior marketplace de contas, skins e itens digitais do Brasil. Segurança, praticidade e os melhores preços.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social"><i class="fa-brands fa-discord"></i></a>
+          <a href="#" class="footer-social"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" class="footer-social"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="footer-social"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" class="footer-social"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Marketplace</div>
+        <div class="footer-links">
+          <a href="pages/listings.html" class="footer-link">Todos os Anúncios</a>
+          <a href="pages/listings.html?cat=accounts" class="footer-link">Contas de Jogos</a>
+          <a href="pages/listings.html?cat=skins" class="footer-link">Skins &amp; Itens</a>
+          <a href="pages/listings.html?cat=coins" class="footer-link">Coins &amp; Moedas</a>
+          <a href="pages/sell.html" class="footer-link">Anunciar</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Empresa</div>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Sobre Nós</a>
+          <a href="#" class="footer-link">Blog</a>
+          <a href="#" class="footer-link">Carreiras</a>
+          <a href="#" class="footer-link">Afiliados</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Suporte</div>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Central de Ajuda</a>
+          <a href="#" class="footer-link">Contato</a>
+          <a href="#" class="footer-link">Disputas</a>
+          <a href="#" class="footer-link">Como Funciona</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-text">&copy; 2026 GameVault. Todos os direitos reservados.</div>
+      <div class="footer-bottom-links">
+        <a href="#" class="footer-bottom-link">Privacidade</a>
+        <a href="#" class="footer-bottom-link">Termos</a>
+        <a href="#" class="footer-bottom-link">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- AUTH MODAL -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">Entrar na GameVault</div>
+      <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-tabs">
+      <div class="modal-tab active" id="tabLogin" onclick="switchTab('login')">Entrar</div>
+      <div class="modal-tab" id="tabRegister" onclick="switchTab('register')">Cadastrar</div>
+    </div>
+    <div id="loginForm">
+      <div class="social-login">
+        <button class="social-btn" onclick="showToast('Em breve!','info')">&#128308; Entrar com Google</button>
+        <button class="social-btn" onclick="showToast('Em breve!','info')">&#9899; Entrar com Discord</button>
+      </div>
+      <div class="divider"><span>ou com e-mail</span></div>
+      <div class="form-group">
+        <label class="form-label">E-mail</label>
+        <input class="form-input" type="email" placeholder="seu@email.com" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Senha</label>
+        <input class="form-input" type="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" />
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;" onclick="handleLogin()">
+        <i class="fa-solid fa-arrow-right-to-bracket"></i> Entrar
+      </button>
+      <div style="text-align:center;margin-top:14px;font-size:13px;color:var(--text-muted);">
+        <a href="#" style="color:var(--accent);">Esqueceu a senha?</a>
+      </div>
+    </div>
+    <div id="registerForm" style="display:none;">
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Nome</label><input class="form-input" type="text" placeholder="Seu nome" /></div>
+        <div class="form-group"><label class="form-label">Sobrenome</label><input class="form-input" type="text" placeholder="Sobrenome" /></div>
+      </div>
+      <div class="form-group"><label class="form-label">E-mail</label><input class="form-input" type="email" placeholder="seu@email.com" /></div>
+      <div class="form-group"><label class="form-label">Senha</label><input class="form-input" type="password" placeholder="Mínimo 8 caracteres" /></div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;" onclick="handleRegister()">
+        <i class="fa-solid fa-user-plus"></i> Criar Conta Grátis
+      </button>
+      <div style="text-align:center;margin-top:14px;font-size:12px;color:var(--text-muted);">
+        Ao criar uma conta você concorda com os <a href="#" style="color:var(--accent);">Termos de Uso</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
